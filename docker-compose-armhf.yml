@@ -1,12 +1,16 @@
 version: '3'
 services:
   nextcloudpi:
+    restart: unless-stopped
     image: ownyourbits/nextcloudpi-armhf
-    command: "${IP}"
+    #command: "${IP}"
+    command: varpi.duckdns.org 192.168.0.102
     ports:
      - "80:80"
      - "443:443"
      - "4443:4443"
+     - "20080:80"
+     - "20443:443"
     volumes:
      - ncdata:/data
 
